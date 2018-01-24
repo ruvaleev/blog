@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  get 'hello/home/index', to: 'home#index'
+  resources :posts
+  get 'posts/page/(:page(.:format))', to: 'posts#index'
+
+  get 'home(/:hello)', to: 'home#index'
   root 'home#index'
 end
